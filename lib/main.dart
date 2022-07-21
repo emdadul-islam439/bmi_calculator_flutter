@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'input_page.dart';
 
 void main() {
   runApp(const BMICalculatorApp());
@@ -14,12 +15,11 @@ class BMICalculatorApp extends StatefulWidget {
 class _BMICalculatorAppState extends State<BMICalculatorApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('BMI Calculator App'),
-        ),
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        primaryColor: const Color(0xFF1D2136),
       ),
+      home: const InputPage(),
     );
   }
 }
