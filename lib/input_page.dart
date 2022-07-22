@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'icon_content.dart';
+import 'input_card.dart';
+
+const activeCardColor = 0xFF1D1E33;
+const inActiveCardColor = 0xFF111328;
+const bottomContainerColor = 0xFFEB1555;
+const maleButtonTapped = 1;
+const femaleButtonTapped = 2;
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -8,6 +17,21 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  int maleCardColor = inActiveCardColor;
+  int femaleCardColor = inActiveCardColor;
+
+  void changeColor(int latestTap) {
+    setState(() {
+      if (latestTap == maleButtonTapped) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inActiveCardColor;
+      } else {
+        maleCardColor = inActiveCardColor;
+        femaleCardColor = activeCardColor;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,45 +45,68 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               flex: 2,
               child: Row(
-                children: const [
-                  InputCard(),
-                  InputCard(),
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        changeColor(maleButtonTapped);
+                      },
+                      child: InputCard(
+                        childWidget: const IconContent(
+                          icon: FontAwesomeIcons.mars,
+                          label: "MALE",
+                        ),
+                        color: maleCardColor,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        changeColor(femaleCardColor);
+                      },
+                      child: InputCard(
+                        childWidget: const IconContent(
+                          icon: FontAwesomeIcons.venus,
+                          label: "FEMALE",
+                        ),
+                        color: femaleCardColor,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-            const InputCard(flex: 2),
+            const Expanded(
+              flex: 2,
+              child: InputCard(
+                childWidget: SizedBox(),
+              ),
+            ),
             Expanded(
               flex: 2,
               child: Row(
                 children: const [
-                  InputCard(),
-                  InputCard(),
+                  Expanded(
+                    child: InputCard(
+                      childWidget: SizedBox(),
+                    ),
+                  ),
+                  Expanded(
+                    child: InputCard(
+                      childWidget: SizedBox(),
+                    ),
+                  ),
                 ],
               ),
             ),
-            const InputCard(color: 0xFFC04D6A),
+            const Expanded(
+              child: InputCard(
+                color: 0xFFC04D6A,
+                childWidget: SizedBox(),
+              ),
+            ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-
-class InputCard extends StatelessWidget {
-  final int flex;
-  final int color;
-  const InputCard({Key? key, this.flex = 1, this.color = 0xFF323244}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: flex,
-      child: Container(
-        margin: const EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-          color: Color(color),
-          borderRadius: BorderRadius.circular(10.0),
         ),
       ),
     );
