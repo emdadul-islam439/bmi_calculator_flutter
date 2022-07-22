@@ -34,71 +34,71 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: InputCard(
+                      onPressed: () {
                         setState(() {
                           selectedGender = Gender.male;
                         });
                       },
-                      child: InputCard(
-                        childWidget: const IconContent(
-                          icon: FontAwesomeIcons.mars,
-                          label: "MALE",
-                        ),
-                        color: selectedGender == Gender.male
-                            ? activeCardColor
-                            : inActiveCardColor,
+                      childWidget: const IconContent(
+                        icon: FontAwesomeIcons.mars,
+                        label: "MALE",
                       ),
+                      color: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inActiveCardColor,
                     ),
                   ),
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: InputCard(
+                      onPressed: () {
                         setState(() {
                           selectedGender = Gender.female;
                         });
                       },
-                      child: InputCard(
-                        childWidget: const IconContent(
-                          icon: FontAwesomeIcons.venus,
-                          label: "FEMALE",
-                        ),
-                        color: selectedGender == Gender.female
-                            ? activeCardColor
-                            : inActiveCardColor,
+                      childWidget: const IconContent(
+                        icon: FontAwesomeIcons.venus,
+                        label: "FEMALE",
                       ),
+                      color: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inActiveCardColor,
                     ),
                   ),
                 ],
               ),
             ),
-            const Expanded(
+            Expanded(
               flex: 2,
               child: InputCard(
-                childWidget: SizedBox(),
+                childWidget: const SizedBox(),
+                onPressed: () {},
               ),
             ),
             Expanded(
               flex: 2,
               child: Row(
-                children: const [
+                children: [
                   Expanded(
                     child: InputCard(
-                      childWidget: SizedBox(),
+                      childWidget: const SizedBox(),
+                      onPressed: () {},
                     ),
                   ),
                   Expanded(
                     child: InputCard(
-                      childWidget: SizedBox(),
+                      childWidget: const SizedBox(),
+                      onPressed: () {},
                     ),
                   ),
                 ],
               ),
             ),
-            const Expanded(
+            Expanded(
               child: InputCard(
                 color: 0xFFC04D6A,
-                childWidget: SizedBox(),
+                childWidget: const SizedBox(),
+                onPressed: () {},
               ),
             ),
           ],
