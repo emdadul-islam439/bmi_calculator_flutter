@@ -6,8 +6,11 @@ import 'input_card.dart';
 const activeCardColor = 0xFF1D1E33;
 const inActiveCardColor = 0xFF111328;
 const bottomContainerColor = 0xFFEB1555;
-const maleButtonTapped = 1;
-const femaleButtonTapped = 2;
+
+enum Gender{
+  male,
+  female
+}
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -20,9 +23,9 @@ class _InputPageState extends State<InputPage> {
   int maleCardColor = inActiveCardColor;
   int femaleCardColor = inActiveCardColor;
 
-  void changeColor(int latestTap) {
+  void changeColor(Gender gender) {
     setState(() {
-      if (latestTap == maleButtonTapped) {
+      if (gender == Gender.male) {
         maleCardColor = activeCardColor;
         femaleCardColor = inActiveCardColor;
       } else {
@@ -49,7 +52,7 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        changeColor(maleButtonTapped);
+                        changeColor(Gender.male);
                       },
                       child: InputCard(
                         childWidget: const IconContent(
@@ -63,7 +66,7 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        changeColor(femaleCardColor);
+                        changeColor(Gender.female);
                       },
                       child: InputCard(
                         childWidget: const IconContent(
