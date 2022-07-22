@@ -144,12 +144,20 @@ class _InputPageState extends State<InputPage> {
                             children: [
                               RoundedIconButton(
                                 icon: FontAwesomeIcons.minus,
-                                onPressed: (){},
+                                onPressed: (){
+                                  setState((){
+                                    personsWeight--;
+                                  });
+                                },
                               ),
                               const SizedBox(width: 10.0,),
                               RoundedIconButton(
                                 icon: FontAwesomeIcons.plus,
-                                onPressed: (){},
+                                onPressed: (){
+                                  setState((){
+                                    personsWeight++;
+                                  });
+                                },
                               ),
                             ],
                           ),
@@ -178,12 +186,20 @@ class _InputPageState extends State<InputPage> {
                             children: [
                               RoundedIconButton(
                                 icon: FontAwesomeIcons.minus,
-                                onPressed: (){},
+                                onPressed: (){
+                                  setState((){
+                                    personsAge--;
+                                  });
+                                },
                               ),
                               const SizedBox(width: 10.0,),
                               RoundedIconButton(
                                 icon: FontAwesomeIcons.plus,
-                                onPressed: (){},
+                                onPressed: (){
+                                  setState((){
+                                    personsAge++;
+                                  });
+                                },
                               ),
                             ],
                           ),
