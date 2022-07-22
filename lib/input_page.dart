@@ -14,6 +14,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.none;
   int personsHeight = 100;
+  int personsWeight = 60;
+  int personsAge = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +102,8 @@ class _InputPageState extends State<InputPage> {
                         thumbShape: const RoundSliderThumbShape(
                           enabledThumbRadius: 16.0,
                         ),
-                        overlayShape: const RoundSliderOverlayShape(overlayRadius: 30.0),
+                        overlayShape:
+                            const RoundSliderOverlayShape(overlayRadius: 30.0),
                       ),
                       child: Slider(
                         value: personsHeight.toDouble(),
@@ -115,6 +118,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ],
                 ),
+                color: kActiveCardColor,
               ),
             ),
             Expanded(
@@ -123,14 +127,70 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: InputCard(
-                      childWidget: const SizedBox(),
+                      childWidget: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'WEIGHT',
+                            style: kLabelTextStyle,
+                          ),
+                          const SizedBox(height: 8.0),
+                          Text(
+                            '$personsWeight',
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundedIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: (){},
+                              ),
+                              const SizedBox(width: 10.0,),
+                              RoundedIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: (){},
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                       onPressed: () {},
+                      color: kActiveCardColor,
                     ),
                   ),
                   Expanded(
                     child: InputCard(
-                      childWidget: const SizedBox(),
+                      childWidget: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'AGE',
+                            style: kLabelTextStyle,
+                          ),
+                          const SizedBox(height: 8.0),
+                          Text(
+                            '$personsAge',
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundedIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: (){},
+                              ),
+                              const SizedBox(width: 10.0,),
+                              RoundedIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: (){},
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                       onPressed: () {},
+                      color: kActiveCardColor,
                     ),
                   ),
                 ],
@@ -146,6 +206,32 @@ class _InputPageState extends State<InputPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class RoundedIconButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onPressed;
+
+  const RoundedIconButton({
+    Key? key,
+    required this.icon,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      elevation: 0.0,
+      onPressed: onPressed,
+      constraints: const BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      shape: const CircleBorder(),
+      fillColor: const Color(kRoundIconButtonColor),
+      child: Icon(icon),
     );
   }
 }
