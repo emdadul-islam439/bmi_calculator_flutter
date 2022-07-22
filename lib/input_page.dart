@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'input_card.dart';
-
-const activeCardColor = 0xFF1D1E33;
-const inActiveCardColor = 0xFF111328;
-const bottomContainerColor = 0xFFEB1555;
-
-enum Gender { male, female, none }
+import 'constants.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
@@ -18,6 +13,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.none;
+  int personsHeight = 100;
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +41,8 @@ class _InputPageState extends State<InputPage> {
                         label: "MALE",
                       ),
                       color: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inActiveCardColor,
+                          ? kActiveCardColor
+                          : kInActiveCardColor,
                     ),
                   ),
                   Expanded(
@@ -61,8 +57,8 @@ class _InputPageState extends State<InputPage> {
                         label: "FEMALE",
                       ),
                       color: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inActiveCardColor,
+                          ? kActiveCardColor
+                          : kInActiveCardColor,
                     ),
                   ),
                 ],
@@ -71,8 +67,54 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               flex: 2,
               child: InputCard(
-                childWidget: const SizedBox(),
                 onPressed: () {},
+                childWidget: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'HEIGHT',
+                      style: kLabelTextStyle,
+                    ),
+                    const SizedBox(height: 8.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: [
+                        Text(
+                          '$personsHeight',
+                          style: kNumberTextStyle,
+                        ),
+                        const Text(
+                          'cm',
+                          style: kLabelTextStyle,
+                        ),
+                      ],
+                    ),
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        inactiveTrackColor: const Color(kSliderInActiveColor),
+                        activeTrackColor: Colors.white,
+                        overlayColor: const Color(kThumbOverlayColor),
+                        thumbColor: const Color(kThumbActiveColor),
+                        thumbShape: const RoundSliderThumbShape(
+                          enabledThumbRadius: 16.0,
+                        ),
+                        overlayShape: const RoundSliderOverlayShape(overlayRadius: 30.0),
+                      ),
+                      child: Slider(
+                        value: personsHeight.toDouble(),
+                        min: 50.0,
+                        max: 250.0,
+                        onChanged: (double newValue) {
+                          setState(() {
+                            personsHeight = newValue.round();
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Expanded(
