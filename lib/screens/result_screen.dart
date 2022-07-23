@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 import '../components/input_card.dart';
 import '../constants.dart';
 
-class ResultScreen extends StatefulWidget {
-  const ResultScreen({Key? key}) : super(key: key);
+class ResultScreen extends StatelessWidget {
+  final String result;
+  final String bmi;
+  final String interpretation;
 
-  @override
-  State<ResultScreen> createState() => _ResultScreenState();
-}
+  const ResultScreen({
+    Key? key,
+    required this.result,
+    required this.bmi,
+    required this.interpretation,
+  }) : super(key: key);
 
-class _ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,17 +43,17 @@ class _ResultScreenState extends State<ResultScreen> {
                   childWidget: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
-                        'HEIGHT',
+                        result,
                         style: kResultTextStyle,
                       ),
                       Text(
-                        '18.3',
+                        bmi,
                         style: kBMITextStyle,
                       ),
                       Text(
-                        'Your BMI is quite low, you should eat more!',
+                        interpretation,
                         textAlign: TextAlign.center,
                         style: kBodyTextStyle,
                       )
