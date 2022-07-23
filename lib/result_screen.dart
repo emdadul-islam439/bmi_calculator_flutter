@@ -59,7 +59,10 @@ class _ResultScreenState extends State<ResultScreen> {
                 child: InputCard(
                     color: 0xFFC04D6A,
                     childWidget: const Center(
-                      child: Text('RE-CALCULATE'),
+                      child: Text(
+                        'RE-CALCULATE',
+                        style: kLargeButtonTextStyle,
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pop(context);

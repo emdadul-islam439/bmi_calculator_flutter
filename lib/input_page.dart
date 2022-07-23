@@ -221,7 +221,10 @@ class _InputPageState extends State<InputPage> {
               child: InputCard(
                 color: 0xFFC04D6A,
                 childWidget: const Center(
-                  child: Text('CALCULATE'),
+                  child: Text(
+                    'CALCULATE',
+                    style: kLargeButtonTextStyle,
+                  ),
                 ),
                 onPressed: () {
                   Navigator.push(
