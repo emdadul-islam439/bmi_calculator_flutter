@@ -1,3 +1,4 @@
+import 'package:bmi_calculator_flutter/bottom_button.dart';
 import 'package:flutter/material.dart';
 import 'input_card.dart';
 import 'constants.dart';
@@ -56,17 +57,12 @@ class _ResultScreenState extends State<ResultScreen> {
                 ),
               ),
               Expanded(
-                child: InputCard(
-                    color: 0xFFC04D6A,
-                    childWidget: const Center(
-                      child: Text(
-                        'RE-CALCULATE',
-                        style: kLargeButtonTextStyle,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }),
+                child: BottomButton(
+                  label: 'RE-CALCULATE',
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ),
             ],
           ),

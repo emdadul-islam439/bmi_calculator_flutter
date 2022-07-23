@@ -1,6 +1,8 @@
 import 'package:bmi_calculator_flutter/result_screen.dart';
+import 'package:bmi_calculator_flutter/rounded_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'bottom_button.dart';
 import 'icon_content.dart';
 import 'input_card.dart';
 import 'constants.dart';
@@ -217,24 +219,16 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            Expanded(
-              child: InputCard(
-                color: 0xFFC04D6A,
-                childWidget: const Center(
-                  child: Text(
-                    'CALCULATE',
-                    style: kLargeButtonTextStyle,
+            BottomButton(
+              label: 'CALCULATE',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ResultScreen(),
                   ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ResultScreen(),
-                    ),
-                  );
-                },
-              ),
+                );
+              },
             ),
           ],
         ),
@@ -243,28 +237,3 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class RoundedIconButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onPressed;
-
-  const RoundedIconButton({
-    Key? key,
-    required this.icon,
-    required this.onPressed,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      elevation: 0.0,
-      onPressed: onPressed,
-      constraints: const BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      shape: const CircleBorder(),
-      fillColor: const Color(kRoundIconButtonColor),
-      child: Icon(icon),
-    );
-  }
-}

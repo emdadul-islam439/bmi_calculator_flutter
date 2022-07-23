@@ -10,6 +10,7 @@ const kThumbOverlayColor = 0x29EB1555;
 const kSliderInActiveColor = 0xFF8D8E98;
 const kRoundIconButtonColor = 0xFF4C4F5E;
 const kResultTextColor = 0xFF24D876;
+const kBottomButtonColor = 0xFFC04D6A;
 
 const kLabelTextStyle = TextStyle(
   fontSize: 18.0,
