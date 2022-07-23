@@ -14,17 +14,15 @@ class BottomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: InputCard(
-        color: kBottomButtonColor,
-        childWidget: Center(
-          child: Text(
-            label,
-            style: kLargeButtonTextStyle,
-          ),
+    return InputCard(
+      color: kBottomButtonColor,
+      childWidget: Center(
+        child: Text(
+          label,
+          style: kLargeButtonTextStyle,
         ),
-        onPressed: onPressed,
       ),
+      onPressed: onPressed,
     );
   }
 }

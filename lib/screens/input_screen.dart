@@ -220,23 +220,25 @@ class _InputScreenState extends State<InputScreen> {
                 ],
               ),
             ),
-            BottomButton(
-              label: 'CALCULATE',
-              onPressed: () {
-                var calculatedResult = CalculatorBrain(
-                    weight: personsWeight, height: personsHeight);
+            Expanded(
+              child: BottomButton(
+                label: 'CALCULATE',
+                onPressed: () {
+                  var calculatedResult = CalculatorBrain(
+                      weight: personsWeight, height: personsHeight);
 
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ResultScreen(
-                      bmi: calculatedResult.calculateBMI(),
-                      result: calculatedResult.getResult(),
-                      interpretation: calculatedResult.getInterpretation(),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ResultScreen(
+                        bmi: calculatedResult.calculateBMI(),
+                        result: calculatedResult.getResult(),
+                        interpretation: calculatedResult.getInterpretation(),
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ],
         ),
