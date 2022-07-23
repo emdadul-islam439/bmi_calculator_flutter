@@ -45,5 +45,4 @@ const kBodyTextStyle = TextStyle(
   fontSize: 22.0,
 );
 
-enum
-Gender { male, female, none }
+enum Gender { male, female, none }

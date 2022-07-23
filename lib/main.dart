@@ -24,4 +24,3 @@ class _BMICalculatorAppState extends State<BMICalculatorApp> {
     );
   }
 }
-
