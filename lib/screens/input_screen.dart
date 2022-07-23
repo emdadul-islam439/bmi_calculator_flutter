@@ -1,20 +1,20 @@
-import 'package:bmi_calculator_flutter/result_screen.dart';
-import 'package:bmi_calculator_flutter/rounded_icon.dart';
+import 'package:bmi_calculator_flutter/screens/result_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'bottom_button.dart';
-import 'icon_content.dart';
-import 'input_card.dart';
-import 'constants.dart';
+import '../components/bottom_button.dart';
+import '../components/icon_content.dart';
+import '../components/input_card.dart';
+import '../components/rounded_icon.dart';
+import '../constants.dart';
 
-class InputPage extends StatefulWidget {
-  const InputPage({Key? key}) : super(key: key);
+class InputScreen extends StatefulWidget {
+  const InputScreen({Key? key}) : super(key: key);
 
   @override
-  State<InputPage> createState() => _InputPageState();
+  State<InputScreen> createState() => _InputScreenState();
 }
 
-class _InputPageState extends State<InputPage> {
+class _InputScreenState extends State<InputScreen> {
   Gender selectedGender = Gender.none;
   int personsHeight = 100;
   int personsWeight = 60;

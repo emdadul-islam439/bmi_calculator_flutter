@@ -1,7 +1,7 @@
-import 'package:bmi_calculator_flutter/bottom_button.dart';
+import 'package:bmi_calculator_flutter/components/bottom_button.dart';
 import 'package:flutter/material.dart';
-import 'input_card.dart';
-import 'constants.dart';
+import '../components/input_card.dart';
+import '../constants.dart';
 
 class ResultScreen extends StatefulWidget {
   const ResultScreen({Key? key}) : super(key: key);
