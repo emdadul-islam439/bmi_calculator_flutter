@@ -23,6 +23,8 @@ class _ResultScreenState extends State<ResultScreen> {
             children: [
               Expanded(
                 child: Container(
+                  padding: const EdgeInsets.all(16.0),
+                  alignment: Alignment.bottomLeft,
                   child: const Text(
                     'Your Result',
                     textAlign: TextAlign.start,
