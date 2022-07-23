@@ -1,3 +1,4 @@
+import 'package:bmi_calculator_flutter/result_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
@@ -144,17 +145,19 @@ class _InputPageState extends State<InputPage> {
                             children: [
                               RoundedIconButton(
                                 icon: FontAwesomeIcons.minus,
-                                onPressed: (){
-                                  setState((){
+                                onPressed: () {
+                                  setState(() {
                                     personsWeight--;
                                   });
                                 },
                               ),
-                              const SizedBox(width: 10.0,),
+                              const SizedBox(
+                                width: 10.0,
+                              ),
                               RoundedIconButton(
                                 icon: FontAwesomeIcons.plus,
-                                onPressed: (){
-                                  setState((){
+                                onPressed: () {
+                                  setState(() {
                                     personsWeight++;
                                   });
                                 },
@@ -186,17 +189,19 @@ class _InputPageState extends State<InputPage> {
                             children: [
                               RoundedIconButton(
                                 icon: FontAwesomeIcons.minus,
-                                onPressed: (){
-                                  setState((){
+                                onPressed: () {
+                                  setState(() {
                                     personsAge--;
                                   });
                                 },
                               ),
-                              const SizedBox(width: 10.0,),
+                              const SizedBox(
+                                width: 10.0,
+                              ),
                               RoundedIconButton(
                                 icon: FontAwesomeIcons.plus,
-                                onPressed: (){
-                                  setState((){
+                                onPressed: () {
+                                  setState(() {
                                     personsAge++;
                                   });
                                 },
@@ -215,8 +220,17 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: InputCard(
                 color: 0xFFC04D6A,
-                childWidget: const SizedBox(),
-                onPressed: () {},
+                childWidget: const Center(
+                  child: Text('CALCULATE'),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ResultScreen(),
+                    ),
+                  );
+                },
               ),
             ),
           ],
